@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('solusis', function (Blueprint $table) {
+        Schema::create('solusi', function (Blueprint $table) {
             $table->id();
             $table->string('kode')->unique();
             $table->string('kategori_resiko');

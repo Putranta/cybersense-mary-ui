@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class LogPengguna extends Model
 {
+    protected $table = 'log_pengguna';
     protected $fillable = [
         'name',
         'umur',
@@ -23,7 +24,7 @@ class LogPengguna extends Model
 
     public function kriteriaDetails()
     {
-        return $this->belongsToMany(KriteriaDetail::class, 'input_penggunas', 'log_pengguna_id', 'kriteria_detail_id')
+        return $this->belongsToMany(KriteriaDetail::class, 'input_pengguna', 'log_pengguna_id', 'kriteria_detail_id')
             ->withTimestamps();
     }
 }

@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rule_orders', function (Blueprint $table) {
+        Schema::create('rule_order', function (Blueprint $table) {
             $table->id();
             $table->foreignId('rule_base_id')->constrained('rule_base')->onDelete('cascade');
             $table->foreignId('kriteria_detail_id')->constrained('kriteria_detail')->onDelete('cascade');

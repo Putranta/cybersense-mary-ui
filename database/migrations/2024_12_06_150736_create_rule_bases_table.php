@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rule_bases', function (Blueprint $table) {
+        Schema::create('rule_base', function (Blueprint $table) {
             $table->id();
             $table->string('kode')->unique();
             $table->foreignId('solusi_id')->constrained('solusi')->onDelete('cascade');
