@@ -11,6 +11,8 @@ class RuleBase extends Model
         'kode',
         'solusi_id',
         'pemilik_case',
+        'skor',
+        'kategori'
     ];
 
     public function solusi()

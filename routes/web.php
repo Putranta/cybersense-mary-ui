@@ -26,6 +26,10 @@ Route::middleware('auth')->group(function () {
     Volt::route('/users', 'users.index');
     Volt::route('/dashboard', 'admin.dashboard');
     Volt::route('/kriteria', 'admin.kriteria.index');
-    Volt::route('/kriteria/{id}/detail', 'admin.kriteria.detailupdate');
+    Volt::route('/kriteria/{id}/detail', 'admin.kriteria.detail');
+    Volt::route('/rule-base', 'admin.rulebase.index');
+    Volt::route('/solusi', 'admin.solusi.index');
+    Volt::route('/solusi/create', 'admin.solusi.create');
+    Volt::route('/solusi/{id}/edit', 'admin.solusi.edit');
     // ... more
 });

@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('kriteria_detail', function (Blueprint $table) {
             $table->id();
-            $table->string('kode', 4)->unique();
-            $table->string('name', 255);
+            $table->string('kode', 6)->unique();
+            $table->string('name', 100);
+            $table->string('desc', 255)->nullable();
             $table->foreignId('kriteria_id')->constrained('kriteria')->onDelete('cascade');
             $table->timestamps();
         });
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kriteria_details');
+        Schema::dropIfExists('kriteria_detail');
     }
 };

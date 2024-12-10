@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rule_base', function (Blueprint $table) {
-            $table->id();
-            $table->string('kode')->unique();
-            $table->foreignId('solusi_id')->constrained('solusi')->onDelete('cascade');
-            $table->string('pemilik_case');
-            $table->timestamps();
+        Schema::table('kriteria', function (Blueprint $table) {
+            $table->string('kode')->nullable()->unique();
         });
     }
 
@@ -25,6 +21,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rule_base');
+        //
     }
 };

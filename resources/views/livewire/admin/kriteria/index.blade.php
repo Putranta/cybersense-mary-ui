@@ -18,6 +18,9 @@ new class extends Component {
     #[Rule('required')]
     public string $name = '';
 
+    #[Rule('required|unique:kriteria,kode')]
+    public string $kode = '';
+
     #[Rule('required')]
     public float $bobot;
 
@@ -27,8 +30,9 @@ new class extends Component {
     public function headers(): array
     {
         return [
+            ['key' => 'kode', 'label' => 'Kode'],
             ['key' => 'name', 'label' => 'Nama'],
-            ['key' => 'detail', 'label' => 'Detail'],
+            ['key' => 'detail', 'label' => 'Detail', 'class' => 'hidden lg:table-cell'],
             ['key' => 'bobot', 'label' => 'Bobot']
         ];
     }
@@ -52,6 +56,7 @@ new class extends Component {
     public function resetField()
     {
         $this->name = "";
+        $this->kode = "";
         $this->bobot = 0.0;
     }
 
@@ -65,10 +70,16 @@ new class extends Component {
         $this->resetField();
         $this->success('Kriteria berhasil ditambah');
     }
+
+    public function delete(Kriteria $kriteria): void
+    {
+        $kriteria->delete();
+        $this->warning("$kriteria->name deleted", '', position: 'toast-bottom');
+    }
 }; ?>
 
 <div>
-    <x-header title="Kriteria" separator progress-indicator @row-click="$wire.detailModal = true">
+    <x-header title="Kriteria" separator progress-indicator >
         <x-slot:actions>
             <x-button label="Tambah" @click="$wire.createModal = true" responsive icon="o-plus" class="btn-primary" />
             {{-- <x-theme-toggle darkTheme="synthwave" lightTheme="cupcake" /> --}}
@@ -83,13 +94,21 @@ new class extends Component {
                     <x-badge value="{{$item->name}}" class="badge-primary" />
                 @endforeach
             @endscope
+            @scope('actions', $kriteria)
+                <x-button icon="o-trash" wire:click="delete({{ $kriteria['id'] }})" wire:confirm="Are you sure?" spinner
+                    class="btn-ghost btn-sm text-red-500" />
+            @endscope
         </x-table>
     </x-card>
 
     <x-modal wire:model="createModal" title="Tambah Kriteria" separator>
         <x-form wire:submit="save">
             <x-input label="Kriteria" wire:model="name"/>
-            <x-input label="Bobot" wire:model="bobot"/>
+
+            <div class="flex flex-row gap-3 mb-3">
+                <x-input label="Bobot" wire:model="bobot"/>
+                <x-input label="Kode" wire:model="kode" />
+            </div>
 
             <x-slot:actions>
                 <x-button label="Cancel" @click="$wire.createModal = false" />
@@ -98,7 +117,5 @@ new class extends Component {
         </x-form>
     </x-modal>
 
-    <x-modal wire:model="detailModal" title="Detail Kriteria" separator>
 
-    </x-modal>
 </div>

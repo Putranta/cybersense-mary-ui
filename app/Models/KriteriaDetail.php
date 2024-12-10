@@ -10,7 +10,9 @@ class KriteriaDetail extends Model
     protected $fillable = [
         'kode',
         'name',
+        'desc',
         'kriteria_id',
+        'rekomendasi'
     ];
 
     public function kriteria()

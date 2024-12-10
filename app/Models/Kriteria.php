@@ -11,6 +11,7 @@ class Kriteria extends Model
         'name',
         'slug',
         'bobot',
+        'kode'
     ];
 
     public function kriteriaDetails()

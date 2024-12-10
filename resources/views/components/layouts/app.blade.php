@@ -7,6 +7,9 @@
     <title>{{ isset($title) ? $title.' - '.config('app.name') : config('app.name') }}</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- TinyMCE --}}
+    <script src="https://cdn.tiny.cloud/1/ltx2i0i5ckkd0qz95tu9sep4j77rh4z81zizib19cnst238a/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 </head>
 <body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
 
@@ -49,8 +52,9 @@
                 <x-menu-item title="Dashboard" icon="o-sparkles" link="/dashboard" />
                 <x-menu-item title="Users" icon="o-users" link="/users" />
                 <x-menu-sub title="Settings" icon="o-cog-6-tooth">
-                    <x-menu-item title="Rule Base" icon="o-code-bracket" link="####" />
+                    <x-menu-item title="Rule Base" icon="o-code-bracket" link="/rule-base" />
                     <x-menu-item title="Kriteria" icon="o-archive-box" link="/kriteria" />
+                    <x-menu-item title="Solusi" icon="o-key" link="/solusi" />
                 </x-menu-sub>
             </x-menu>
         </x-slot:sidebar>
