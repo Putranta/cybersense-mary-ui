@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
 Volt::route('/', 'public.home')->name('landing');
-Volt::route('/cek-resiko', 'public.cekresiko')->name('cek');
+Volt::route('/cek-risiko', 'public.cekresiko')->name('cek');
+Volt::route('/form/user/{id}', 'public.form_perhitungan')->name('form');
 Volt::route('/petunjuk', 'public.petunjuk')->name('petunjuk');
 Volt::route('/pengembang', 'public.pengembang')->name('pengembang');
 

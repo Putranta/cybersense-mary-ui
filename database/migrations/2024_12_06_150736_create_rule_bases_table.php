@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('rule_base', function (Blueprint $table) {
             $table->id();
             $table->string('kode')->unique();
-            $table->foreignId('solusi_id')->constrained('solusi')->onDelete('cascade');
+            $table->foreignId('solusi_id')->nullable()->constrained('solusi')->onDelete('cascade');
             $table->string('pemilik_case');
             $table->timestamps();
         });

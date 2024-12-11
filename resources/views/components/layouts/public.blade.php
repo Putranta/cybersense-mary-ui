@@ -87,7 +87,7 @@
                         </x-navbar-item>
                     </li>
                     <li>
-                        <x-navbar-item url="{{ route('cek') }}" active="{{ request()->routeIs('cek') }}">
+                        <x-navbar-item url="{{ route('cek') }}" active="{{ request()->routeIs('cek') OR  request()->routeIs('form')}}">
                             Cek Risiko
                         </x-navbar-item>
                     </li>
@@ -119,7 +119,7 @@
 
     </div>
 
-
+    <x-toast />
     @stack('js')
     @livewireScripts
 </body>
