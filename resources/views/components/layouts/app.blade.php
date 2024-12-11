@@ -51,10 +51,11 @@
 
                 <x-menu-item title="Dashboard" icon="o-sparkles" link="/dashboard" />
                 <x-menu-item title="Users" icon="o-users" link="/users" />
+                <x-menu-item title="Log Pengguna" icon="o-user-group" link="/log-pengguna" />
                 <x-menu-sub title="Settings" icon="o-cog-6-tooth">
                     <x-menu-item title="Rule Base" icon="o-code-bracket" link="/rule-base" />
                     <x-menu-item title="Kriteria" icon="o-archive-box" link="/kriteria" />
-                    <x-menu-item title="Solusi" icon="o-key" link="/solusi" />
+                    {{-- <x-menu-item title="Solusi" icon="o-key" link="/solusi" /> --}}
                 </x-menu-sub>
             </x-menu>
         </x-slot:sidebar>

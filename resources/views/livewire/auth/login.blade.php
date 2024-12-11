@@ -20,7 +20,7 @@ class extends Component {
     {
         // It is logged in
         if (auth()->user()) {
-            return redirect('/users');
+            return redirect('/dashboard');
         }
     }
 
@@ -31,7 +31,7 @@ class extends Component {
         if (auth()->attempt($credentials)) {
             request()->session()->regenerate();
 
-            return redirect()->intended('/users');
+            return redirect()->intended('/dashboard');
         }
 
         $this->addError('email', 'The provided credentials do not match our records.');

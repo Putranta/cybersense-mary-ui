@@ -27,4 +27,9 @@ class LogPengguna extends Model
         return $this->belongsToMany(KriteriaDetail::class, 'input_pengguna', 'log_pengguna_id', 'kriteria_detail_id')
             ->withTimestamps();
     }
+
+    public function inputs()
+    {
+        return $this->hasMany(InputPengguna::class, 'log_pengguna_id');
+    }
 }

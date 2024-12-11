@@ -12,6 +12,7 @@ new class extends Component {
     use Toast;
     public RuleBase $ruleBase;
     public bool $createModal = false;
+    public array $kriteriaDetail = [];
 
     public int $kriteria_detail_id = 0;
 
@@ -51,11 +52,21 @@ new class extends Component {
         $this->success('Rule Base berhasil ditambah');
     }
 
+    public function mount()
+    {
+        $this->kriteriaDetail = KriteriaDetail::with('kriteria')->get()->map(function ($detail) {
+            return [
+                'id' => $detail->id,
+                'label' => $detail->kode,
+                'sub_label' => "{$detail->kriteria->name} : {$detail->name}"
+            ];
+        })->toArray();
+    }
+
     public function with():array
     {
         return [
             'rule' => RuleBase::all(),
-            'kriteriaDetail' => KriteriaDetail::all(),
             'headers' => $this->headers(),
         ];
     }
@@ -101,15 +112,15 @@ new class extends Component {
                     <x-input label="Skor" wire:model="skor" type="number" />
                 </div>
                <div class="basis-1/2">
-                <x-select label="Kategori" icon="o-user" :options="$option" wire:model="kategori"  />
+                <x-select label="Kategori" icon="o-user" :options="$option" wire:model="kategori" placeholder="-- Pilih --"  />
                </div>
             </div>
             <x-choices-offline
             label="Detail Kriteria"
             wire:model="kriteria_detail"
             :options="$kriteriaDetail"
-            option-label="kode"
-            option-sub-label="name"
+            option-label="label"
+            option-sub-label="sub_label"
             searchable />
             <x-slot:actions>
                 <x-button label="Cancel" @click="$wire.createModal = false" />

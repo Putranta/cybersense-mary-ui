@@ -12,7 +12,8 @@ class RuleBase extends Model
         'solusi_id',
         'pemilik_case',
         'skor',
-        'kategori'
+        'kategori',
+        'rekomendasi'
     ];
 
     public function solusi()
@@ -24,5 +25,10 @@ class RuleBase extends Model
     {
         return $this->belongsToMany(KriteriaDetail::class, 'rule_order', 'rule_base_id', 'kriteria_detail_id')
             ->withTimestamps();
+    }
+
+    public function ruleOrders()
+    {
+        return $this->hasMany(RuleOrder::class, 'rule_base_id');
     }
 }

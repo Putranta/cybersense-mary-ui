@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('log_pengguna_id')->constrained('log_pengguna')->onDelete('cascade');
             $table->foreignId('kriteria_detail_id')->constrained('kriteria_detail')->onDelete('cascade');
-            $table->integer('value');
+            $table->integer('value')->nullable();
             $table->timestamps();
         });
     }
