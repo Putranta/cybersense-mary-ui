@@ -65,7 +65,7 @@ class extends Component {
             class="card w-full bg-base-100 shadow-xl rounded-lg pt-6 mx-auto hover:shadow-lg transition-shadow duration-300">
             <figure class="flex justify-center mb-4">
                 <img src="{{ asset('foto reihan.jpg') }}" alt="Foto Mahasiswa"
-                    class="rounded-full w-32 h-32 border-4 border-red-400">
+                    class="rounded-full w-32 h-32 border-4 border-red-400 object-cover">
             </figure>
             <div class="card-body text-center">
                 <h2 class="text-lg font-semibold">Reihan Nanda Muliawan</h2>
@@ -78,7 +78,7 @@ class extends Component {
             class="card w-full bg-base-100 shadow-xl rounded-lg pt-6 mx-auto hover:shadow-lg transition-shadow duration-300">
             <figure class="flex justify-center mb-4">
                 <img src="{{ asset('parman.jpg') }}" alt="Foto Mahasiswa"
-                    class="rounded-full w-32 h-32 border-4 border-yellow-400">
+                    class="rounded-full w-32 h-32 border-4 border-yellow-400 object-cover">
             </figure>
             <div class="card-body text-center">
                 <h2 class="text-lg font-semibold">Arianto Parman Sermae</h2>
