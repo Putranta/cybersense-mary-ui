@@ -57,6 +57,11 @@
                     <x-menu-item title="Kriteria" icon="o-archive-box" link="/kriteria" />
                     {{-- <x-menu-item title="Solusi" icon="o-key" link="/solusi" /> --}}
                 </x-menu-sub>
+                <x-menu-sub title="Article" icon="o-puzzle-piece">
+                    <x-menu-item title="Posts" icon="o-face-smile" link="/admin/article" />
+                    <x-menu-item title="Category" icon="o-archive-box" link="/admin/category" />
+                    {{-- <x-menu-item title="Solusi" icon="o-key" link="/solusi" /> --}}
+                </x-menu-sub>
 
                     <x-theme-toggle class="btn btn-ghost" label="Theme" />
 

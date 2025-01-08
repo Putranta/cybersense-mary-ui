@@ -9,6 +9,8 @@ Volt::route('/form/user/{id}', 'public.form_perhitungan')->name('form');
 Volt::route('/hasil', 'public.hasil')->name('hasil');
 Volt::route('/petunjuk', 'public.petunjuk')->name('petunjuk');
 Volt::route('/pengembang', 'public.pengembang')->name('pengembang');
+Volt::route('/blog', 'public.blog')->name('blog');
+Volt::route('/blog/{slug}', 'public.blog-detail')->name('blog-detail');
 
 // Users will be redirected to this route if not logged in
 Volt::route('/login', 'auth.login')->name('login');
@@ -34,5 +36,9 @@ Route::middleware('auth')->group(function () {
     Volt::route('/solusi', 'admin.solusi.index');
     Volt::route('/solusi/create', 'admin.solusi.create');
     Volt::route('/solusi/{id}/edit', 'admin.solusi.edit');
+    Volt::route('/admin/article', 'admin.article.index');
+    Volt::route('/admin/article/create', 'admin.article.create');
+    Volt::route('/admin/article/{id}/update', 'admin.article.update');
+    Volt::route('/admin/category', 'admin.article.category.index');
     // ... more
 });

@@ -25,7 +25,7 @@
     <div class="text-base-content">
         <div
             class="navbar bg-base-100 sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-80 backdrop-blur transition-shadow duration-100 [transform:translate3d(0,0,0)]">
-            <div class="navbar-start">
+            <div class="navbar-start min-h-screen">
                 <div class="dropdown">
                     <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -55,6 +55,12 @@
                             <x-navbar-item url="{{ route('pengembang') }}"
                                 active="{{ request()->routeIs('pengembang') }}">
                                 Pengembang
+                            </x-navbar-item>
+                        </li>
+                        <li class="mb-6">
+                            <x-navbar-item url="{{ route('blog') }}"
+                                active="{{ request()->routeIs('blog') OR request()->routeIs('blog-detail') }}">
+                                Blog
                             </x-navbar-item>
                         </li>
                         <li>
@@ -100,6 +106,12 @@
                         <x-navbar-item url="{{ route('pengembang') }}"
                             active="{{ request()->routeIs('pengembang') }}">
                             Pengembang
+                        </x-navbar-item>
+                    </li>
+                    <li>
+                        <x-navbar-item url="{{ route('blog') }}"
+                            active="{{ request()->routeIs('blog') OR request()->routeIs('blog-detail') }}">
+                            Blog
                         </x-navbar-item>
                     </li>
                     {{-- <li>
